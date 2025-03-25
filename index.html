@@ -2,39 +2,44 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Young people want to live!</title>
   <style>
-    /* Base styles for the body */
+    /* Styling */
     body {
       margin: 0;
       padding: 0;
       background-color: black;
       color: white;
-      overflow: hidden;
       font-family: Arial, sans-serif;
       text-align: center;
+      overflow: hidden;
     }
-    /* Big title styling */
     h1 {
       font-size: 3em;
       margin-top: 20px;
-      position: relative;
-      z-index: 2;
     }
-    /* Container for the content (image and audio) */
-    .content {
+    
+    /* Slideshow */
+    .slideshow-container {
       position: relative;
-      z-index: 2;
-      margin-top: 20px;
+      max-width: 60%;
+      margin: auto;
     }
-    /* Centered image styling */
-    .center-image {
-      max-width: 50%;
+    .slide {
+      display: none;
+    }
+    .slide img {
+      width: 100%;
       height: auto;
-      display: block;
-      margin: 20px auto;
+      border-radius: 10px;
     }
-    /* Styling for stars */
+    .description {
+      margin-top: 10px;
+      font-size: 1.2em;
+    }
+
+    /* Stars */
     .star {
       position: absolute;
       background-color: yellow;
@@ -49,37 +54,74 @@
   </style>
 </head>
 <body>
-  <!-- Title -->
   <h1>Young people want to live!</h1>
-  
-  <!-- Content container -->
-  <div class="content">
-    <!-- Middle image -->
-    <img class="center-image" src="path/to/your/image.jpg" alt="Picture">
-    <!-- Audio player -->
-    <audio controls autoplay loop>
-      <source src="path/to/your/song.mp3" type="audio/mpeg">
-      Your browser does not support the audio element.
-    </audio>
+
+  <!-- Slideshow Container -->
+  <div class="slideshow-container">
+    <div class="slide">
+      <img src="image-1.jpeg" alt="Description 1">
+      <div class="description">Description 1</div>
+    </div>
+    <div class="slide">
+      <img src="image-2.jpg" alt="Description 2">
+      <div class="description">Description 2</div>
+    </div>
+    <div class="slide">
+      <img src="image-3.jpeg" alt="Description 3">
+      <div class="description">Description 3</div>
+    </div>
+    <div class="slide">
+      <img src="image-4.jpeg" alt="Description 4">
+      <div class="description">Description 4</div>
+    </div>
+    <div class="slide">
+      <img src="image-5.jpeg" alt="Description 5">
+      <div class="description">Description 5</div>
+    </div>
+    <div class="slide">
+      <img src="image-6.jpeg" alt="Description 6">
+      <div class="description">Description 6</div>
+    </div>
+    <div class="slide">
+      <img src="image-7.jpeg" alt="Description 7">
+      <div class="description">Description 7</div>
+    </div>
   </div>
 
-  <!-- JavaScript to generate yellow stars -->
+  <!-- Background Stars -->
   <script>
-    const numStars = 100; // Number of stars to generate
+    const numStars = 100;
     for (let i = 0; i < numStars; i++) {
       const star = document.createElement('div');
       star.classList.add('star');
-      // Random size between 1px and 3px
       const size = Math.random() * 2 + 1;
       star.style.width = size + 'px';
       star.style.height = size + 'px';
-      // Random position across the viewport
       star.style.left = Math.random() * window.innerWidth + 'px';
       star.style.top = Math.random() * window.innerHeight + 'px';
-      // Randomize the animation duration for variety
       star.style.animationDuration = (Math.random() * 3 + 2) + 's';
       document.body.appendChild(star);
     }
+
+    // Slideshow Script
+    let slideIndex = 0;
+    function showSlides() {
+      let slides = document.getElementsByClassName("slide");
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = "block";
+      setTimeout(showSlides, 3000); // Change slide every 3 seconds
+    }
+    showSlides();
   </script>
+
+  <!-- Audio Player (Autoplay + Loop) -->
+  <audio autoplay loop>
+    <source src="ldr.mp3" type="audio/mpeg">
+  </audio>
+
 </body>
 </html>
