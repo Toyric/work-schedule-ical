@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Young people want to live!</title>
+  <style>
+    /* Base styles for the body */
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: black;
+      color: white;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    /* Big title styling */
+    h1 {
+      font-size: 3em;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+    /* Container for the content (image and audio) */
+    .content {
+      position: relative;
+      z-index: 2;
+      margin-top: 20px;
+    }
+    /* Centered image styling */
+    .center-image {
+      max-width: 50%;
+      height: auto;
+      display: block;
+      margin: 20px auto;
+    }
+    /* Styling for stars */
+    .star {
+      position: absolute;
+      background-color: yellow;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite ease-in-out alternate;
+    }
+    @keyframes twinkle {
+      from { opacity: 0.5; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Title -->
+  <h1>Young people want to live!</h1>
+  
+  <!-- Content container -->
+  <div class="content">
+    <!-- Middle image -->
+    <img class="center-image" src="path/to/your/image.jpg" alt="Picture">
+    <!-- Audio player -->
+    <audio controls autoplay loop>
+      <source src="path/to/your/song.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <!-- JavaScript to generate yellow stars -->
+  <script>
+    const numStars = 100; // Number of stars to generate
+    for (let i = 0; i < numStars; i++) {
+      const star = document.createElement('div');
+      star.classList.add('star');
+      // Random size between 1px and 3px
+      const size = Math.random() * 2 + 1;
+      star.style.width = size + 'px';
+      star.style.height = size + 'px';
+      // Random position across the viewport
+      star.style.left = Math.random() * window.innerWidth + 'px';
+      star.style.top = Math.random() * window.innerHeight + 'px';
+      // Randomize the animation duration for variety
+      star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      document.body.appendChild(star);
+    }
+  </script>
+</body>
+</html>
