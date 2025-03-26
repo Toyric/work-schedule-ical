@@ -13,7 +13,7 @@
       color: white;
       font-family: Arial, sans-serif;
       text-align: center;
-      overflow: hidden;
+      overflow: auto;
     }
     h1 {
       font-size: 3em;
@@ -23,11 +23,11 @@
     /* Slideshow */
     .slideshow-container {
       position: relative;
-      max-width: 60%;
-      margin: auto;
+      max-width: 40%;
+      margin: 20 px auto;
     }
     .slide {
-      display: none;
+      display: block;
     }
     .slide img {
       width: 100%;
@@ -38,7 +38,25 @@
       margin-top: 10px;
       font-size: 1.2em;
     }
+    .additional-text {
+      margin: 40px auto;
+      max-width: 800px;
+      text-align: center;
+    }
 
+    .info-blocks {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap; /* allows wrapping if the screen is too narrow */
+      margin-top: 20px;
+    }
+    .info-block {
+      width: 25%;
+      min-width: 200px; /* so it doesn't get too narrow on small screens */
+      margin-bottom: 20px;
+      text-align: center;
+    }
     /* Stars */
     .star {
       position: absolute;
@@ -60,33 +78,55 @@
   <div class="slideshow-container">
     <div class="slide">
       <img src="image-1.jpeg" alt="Description 1">
-      <div class="description">Description 1</div>
+      <div class="description">Young people not being able to afford beautiful Christmas.</div>
     </div>
     <div class="slide">
       <img src="image-2.jpg" alt="Description 2">
-      <div class="description">Description 2</div>
+      <div class="description">A young woman struggling to obtain food.</div>
     </div>
     <div class="slide">
       <img src="image-3.jpeg" alt="Description 3">
-      <div class="description">Description 3</div>
+      <div class="description">A young woman dealing with day-to-day life.</div>
     </div>
     <div class="slide">
       <img src="image-4.jpeg" alt="Description 4">
-      <div class="description">Description 4</div>
+      <div class="description">A young woman explaining the consenquences of today's standards.</div>
     </div>
     <div class="slide">
       <img src="image-5.jpeg" alt="Description 5">
-      <div class="description">Description 5</div>
+      <div class="description">A young person selling her belongings to afford living.</div>
     </div>
     <div class="slide">
       <img src="image-6.jpeg" alt="Description 6">
-      <div class="description">Description 6</div>
+      <div class="description">An interview explaining conflicts between parents and young people.</div>
     </div>
     <div class="slide">
       <img src="image-7.jpeg" alt="Description 7">
-      <div class="description">Description 7</div>
+      <div class="description">A young child going through a rough negligence.</div>
     </div>
   </div>
+
+   <div class="additional-text">
+    <p>
+      Do not linger the misery of the youth, millions of young people need your hand.<br>
+      Ways to help:
+    </p>
+    <div class="info-blocks">
+      <div class="info-block">
+        <strong>Visit us at:</strong><br>
+        Čs. exilu 491/23, 708 00 Ostrava-Poruba
+      </div>
+      <div class="info-block">
+        <strong>Contact us at:</strong><br>
+        ypwtl@gmail.com
+      </div>
+      <div class="info-block">
+        <strong>Donate at:</strong><br>
+        225482047/0600
+      </div>
+    </div>
+  </div>
+
 
   <!-- Background Stars -->
   <script>
