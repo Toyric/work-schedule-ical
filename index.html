@@ -60,6 +60,16 @@
       margin-bottom: 20px;
       text-align: center;
     }
+        #muteBtn {
+      padding: 10px 20px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      background-color: #444;
+      border: none;
+      color: white;
+      font-size: 1em;
+      border-radius: 5px;
+    }
     /* Stars */
     .star {
       position: absolute;
@@ -130,6 +140,7 @@
     </div>
   </div>
 
+   <button id="muteBtn">Unmute</button>
 
   <!-- Background Stars -->
   <script>
@@ -159,12 +170,27 @@
       setTimeout(showSlides, 5000); // Change slide every 3 seconds
     }
     showSlides();
+
+        const audio = document.createElement('audio');
+    audio.setAttribute('autoplay', '');
+    audio.setAttribute('loop', '');
+    const source = document.createElement('source');
+    source.src = "ldr.mp3";
+    source.type = "audio/mpeg";
+    audio.appendChild(source);
+    document.body.appendChild(audio);
+
+    const muteBtn = document.getElementById('muteBtn');
+    muteBtn.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      muteBtn.textContent = audio.muted ? "Unmute" : "Mute";
+      // If user unmutes, ensure audio is playing
+      if (!audio.muted) {
+        audio.play().catch(err => console.log("Autoplay blocked:", err));
+      }
+    });
   </script>
 
-  <!-- Audio Player (Autoplay + Loop) -->
-  <audio autoplay loop>
-    <source src="ldr.mp3" type="audio/mpeg">
-  </audio>
 
 </body>
 </html>
