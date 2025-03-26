@@ -23,10 +23,11 @@
     /* Slideshow */
     .slideshow-container {
       position: relative;
-      max-width: 50%;
+      max-width: 40%;
       margin: 20 px auto;
       overflow: hidden;
       text-align: center;
+      border: 2px solid red;
     }
     .slide {
       display: none;
@@ -157,7 +158,7 @@
       slideIndex++;
       if (slideIndex > slides.length) { slideIndex = 1; }
       slides[slideIndex - 1].style.display = "block";
-      setTimeout(showSlides, 3000); // Change slide every 3 seconds
+      setTimeout(showSlides, 4000); // Change slide every 3 seconds
     }
     showSlides();
   </script>
